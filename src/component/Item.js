@@ -1,8 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+
 const Item = ({match}) => {
-    const [itm, setItem] = useState({ images: {}});
+    const [itm, setItem] = useState({ images: {},ratings: {}});
   const getItem = async () => {
       
       const item = await fetch(`https://fortnite1.p.rapidapi.com/item/get?id=${match.params.any}`, {
@@ -22,10 +23,20 @@ const Item = ({match}) => {
     getItem();
   }, []);
   return (
-    <div>
+    <div style={{backgroundColor: `black`, color: 'white'}}>
   
-<h1>{itm.name}</h1>
+<h1 style={{margin: '0px',padding: '21.440px',textAlign: 'center' }}>{itm.name}</h1>
 <p>{itm.description}</p>
+<div>
+<h3>Rating:</h3>
+<ul style={{listStyle: 'none'}}>
+  <li>Stars: {itm.ratings.avgStars}</li>
+  <li>Values: {itm.ratings.numberVotes}</li>
+  <li>Points {itm.ratings.totalPoints}</li>
+</ul>
+</div>
+<h3>Rarity: {itm.rarity}</h3>
+<h3>{itm.upcoming? 'Upcoming soon': ''}</h3>
 <img src={itm.images.background} alt="" />
     </div>
   );

@@ -1,5 +1,7 @@
-.App {
+.App{
+  align-items: center;
   text-align: center;
+  background-color: lightblue;
 }
 nav{
   display: flex;
@@ -16,4 +18,35 @@ nav{
   align-items: center;
   list-style: none;
   text-decoration: none;
+}
+.Popularitems{
+
+}
+.flexbox{
+  display: flex;
+  flex-direction: column;
+  
+}
+.flexbox h1{
+  color: white;
+}
+
+.flexbox:first-child{
+ 
+  color: blue;
+}
+.itemList{
+  display: flex;
+  flex-direction: row;
+}
+.item{
+  width: 20%;
+
+}
+.item img{
+  width: 80%;
+}
+.flexwrap{
+  display: flex;
+  flex-wrap: wrap;
 }
